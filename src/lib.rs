@@ -1,3 +1,8 @@
+mod stream;
+use crate::stream::{SendStream, RecvStream};
+mod frame;
+
+mod varint;
 pub type Result<T> = core::result::Result<T, Box::<dyn std::error::Error>>;
 
 pub struct Listener {
@@ -15,14 +20,6 @@ impl Packetizer {
         todo!()
     }
 } 
-
-pub struct ConnectionRef{}
-
-pub struct SendStream {
-    conn_ref: ConnectionRef,
-}
-
-pub struct RecvStream {}
 
 impl Listener {
     pub fn bind(addr: &str, config: ()) -> Result<Self> {
@@ -49,18 +46,6 @@ impl Connection {
 
 
     pub fn accept_uni() -> Result<RecvStream> {
-        todo!()
-    }
-}
-
-impl SendStream {
-    pub fn write(&mut self, buf: &mut [u8]) -> Result<usize> {
-        todo!()
-    }
-}
-
-impl RecvStream {
-    pub fn read(&self, buf: &[u8]) -> Result<usize> {
         todo!()
     }
 }
